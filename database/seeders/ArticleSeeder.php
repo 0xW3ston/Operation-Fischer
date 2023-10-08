@@ -14,7 +14,21 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
-        Article::factory(35)
+        // $iterations = (int) 2000000 / 200000;
+
+        // for($i = 0;$i < $iterations;$i++){
+        //     $articles = Article::factory(200000)->make();
+
+        //     $article_chunks = $articles->chunk(15000);
+    
+        //     $article_chunks->each(function ($chunk) {
+        //         Article::insert($chunk->toArray());
+        //     });
+
+        //     unset($article_chunks, $articles, $chunk);
+        // }
+
+        Article::factory(10)
         ->create();
     }
 }

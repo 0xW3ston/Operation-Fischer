@@ -9,6 +9,12 @@ class Article extends Model
 {
     use HasFactory;
 
+    // protected $primaryKey = null;
+    // public $incrementing = false;
+    // public $timestamps = false;
+
+
+
     protected $fillable = [
         "name",
         "description",

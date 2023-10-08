@@ -21,9 +21,19 @@ class admin_productController extends Controller
         $query = Article::query();
 
         if ($search) {
-            $query->where('name', 'like', "%$search%")
-                ->orWhere('price', 'like', "%$search%");
+            $query->where('name', 'LIKE', "$search%");
         }
+
+        // if($search) {
+
+        //     $searchTermsArray = explode(" ", $search);
+        //     $filteredSearchTerms = array_filter($searchTermsArray);
+        //     $booleanSearchQuery = implode(" +", $filteredSearchTerms);
+
+        //     // $query->whereRaw("MATCH(name) AGAINST('$search*' IN BOOLEAN MODE)");
+        //     $query->whereRaw("MATCH(name) AGAINST('+" . $booleanSearchQuery . "' IN BOOLEAN MODE)");
+            
+        // }
 
         $paginate_data = $query->paginate(10);
         $paginate_data->appends(['search' => $search]);

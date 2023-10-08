@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin_authController;
 use App\Http\Controllers\admin_categorieController;
 use App\Http\Controllers\admin_commandeController;
+use App\Http\Controllers\admin_dashboardController;
 use App\Http\Controllers\admin_productController;
 
 // [ Client Controllers ]:
@@ -19,7 +20,6 @@ use App\Http\Controllers\client_productController;
 use App\Http\Controllers\client_profileController;
 
 use App\Models\Categorie;
-use App\Models\Notification;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ Route::get('/products', function () {
 
 Route::prefix('admin')->middleware('isAuthed:admin')->name('admin.')->group(function () {
 
-    Route::view('dashboard','pages.admin.dashboard',['notifications' => Notification::where('role','admin')->latest()->limit(10)->get()])->name('dashboard');
+    Route::get('dashboard',[admin_dashboardController::class,'index'])->name('dashboard');
 
     Route::get('login', [admin_authController::class,'index'])->name('login.form')->withoutMiddleware('isAuthed:admin');
     Route::post('login',  [admin_authController::class,'login'])->name('login')->withoutMiddleware('isAuthed:admin');
@@ -64,7 +64,7 @@ Route::prefix('admin')->middleware('isAuthed:admin')->name('admin.')->group(func
     // [Categories]:
     Route::get('/categories', [admin_categorieController::class,'index'])->name('categorie.all');
     Route::get('/categorie/add', [admin_categorieController::class, 'create'])->name('categorie.add');
-    Route::get('/categorie/update/{id}', [admin_categorieController::class, 'edit'])->name('categorie.edit');
+    Route::get('/categorie/update/{id?}', [admin_categorieController::class, 'edit'])->name('categorie.edit');
 
     Route::post('/categorie/add', [admin_categorieController::class, 'store'])->name('categorie.ajouter');
     Route::get('/categorie/delete/{id}', [admin_productController::class,'destroy'])->name('categorie.delete');

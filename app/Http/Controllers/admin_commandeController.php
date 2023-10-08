@@ -63,6 +63,8 @@ class admin_commandeController extends Controller
     public function update(string $id)
     {
         $resource_info = Cart::find($id);
+        if (!$resource_info)
+            return redirect()->route('admin.dashboard');
         $resource_info->status = "validated";
         $resource_info->save();
         return redirect()->route('admin.commande.all');

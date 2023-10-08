@@ -17,8 +17,10 @@ return new class extends Migration
             $table->foreignIdFor(Categorie::class)->constrained()->onDelete('cascade');
             $table->string('name',70);
             $table->string('description',200);
-            $table->decimal('price',8,2,true);
+            $table->decimal('price',11,2,true);
             $table->string('img_path',100)->nullable();
+            $table->index('name','IX_name_BTREE');
+            // $table->fullText('name','IX_name_FULLTEXT');
             $table->timestamps();
         });
     }

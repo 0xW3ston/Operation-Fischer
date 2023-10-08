@@ -23,6 +23,7 @@ class admin_categorieController extends Controller
             $query->where('name', 'like', "%$search%");
         }
 
+        // Categorie::find(1)->articles()->attach($new_Article);
         $paginate_data = $query->paginate(10);
         $paginate_data->appends(['search' => $search]);
 

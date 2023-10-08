@@ -10,7 +10,7 @@
 <div class="card bg-light py-3">
     <article class="card-body mx-auto" style="width: 400px;">
         <h4 class="card-title mt-3 text-center">Create Account</h4>
-        <p class="text-center">Get started with !</p>
+        <p class="text-center">Get started with Fischer!</p>
         <form action="{{ route('client.register') }}" method="POST">
             <div class="form-group input-group">
                 <div class="input-group-prepend">

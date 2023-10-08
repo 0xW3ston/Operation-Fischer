@@ -11,7 +11,8 @@
     <link href="{{ asset('assets/client/images/logo/logo_a.png') }}" rel="icon">
     <link href="{{ asset('assets/client/images/logo/logo_a.png') }}" rel="apple-touch-icon">
 
-    <script src="{{ asset('assets/client/vendors/jquery/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/client/vendors/jquery/jquery.min.js') }}"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="{{ asset('assets/client/js/loader.js') }}"></script>
     <script src="{{ asset('assets/client/js/cart_status.js') }}"></script>
     @yield('extra-head')
@@ -41,9 +42,15 @@
                     </div>
                 </li>
                 @auth
-                    <li class="nav-item">
-                        <a href="{{ route('client.logout') }}" class="nav-link" >Log Out</a>
-                    </li>
+                    @if (auth()->user()->role === 'client')
+                        <li class="nav-item">
+                            <a href="{{ route('client.logout') }}" class="nav-link" >Log Out</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a href="{{ route('client.login.form') }}" class="nav-link" >Log In</a>
+                        </li>
+                    @endif
                 @else
                     <li class="nav-item">
                         <a href="{{ route('client.login.form') }}" class="nav-link" >Log In</a>
@@ -117,13 +124,19 @@
                         </div>
                     </li>
                     @auth
-                    <li class="nav-item">
-                        <a href="{{ route('client.logout') }}" class="nav-link" >Log Out</a>
-                    </li>
+                        @if(auth()->user()->role === 'client')
+                            <li class="nav-item">
+                                <a href="{{ route('client.logout') }}" class="nav-link" >Log Out</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="{{ route('client.login.form') }}" class="nav-link" >Log In</a>
+                            </li>
+                        @endif
                     @else
-                    <li class="nav-item">
-                        <a href="{{ route('client.login.form') }}" class="nav-link" >Log In</a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{ route('client.login.form') }}" class="nav-link" >Log In</a>
+                        </li>
                     @endauth
                     <li class="nav-item ml-5">
                         <a class="nav-link pr-0 nav-link-btn" href="#!" data-toggle="offCanvasMenu">
@@ -220,9 +233,12 @@
             </a>
         </li>
     </div>
-    <script src="{{ asset('assets/client/vendors/popper.js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/client/vendors/wowjs/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/client/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/client/vendors/popper.js/popper.min.js') }}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    {{-- <script src="{{ asset('assets/client/vendors/wowjs/wow.min.js') }}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    {{-- <script src="{{ asset('assets/client/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/client/vendors/slick-carousel/slick.min.js') }}"></script>
     <script src="{{ asset('assets/client/js/main.js') }}"></script>
     <script>
