@@ -88,7 +88,10 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-5. run this to create an admin user (in the terminal):
+5. run migrations and run this to create an admin user (in the terminal):
+```sh
+php artisan migrate:install
+```
 ```sh
 php artisan tinker
 ```
@@ -98,6 +101,17 @@ php artisan tinker
 ```php
 App\Models\User::create(["name" => "admin", "username" => "admin", "password" => "admin", "role" => "admin"])
 ```
+
+6. Start up The Server (Laravel:port8000 & Express:port8080):
+   ```sh
+       php artisan serve
+   ```
+   ```sh
+       node express.js
+   ```
+   ```sh
+       npm run dev
+   ```
 
 ## Roadmap
 
