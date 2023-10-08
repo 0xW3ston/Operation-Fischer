@@ -28,7 +28,15 @@
 
 ## About The Project
 
+![Screen Shot](docs/images/screenshots/client_products.png)
+![Screen Shot](docs/images/screenshots/client_product.png)
+![Screen Shot](docs/images/screenshots/client_checkout.png)
 ![Screen Shot](docs/images/screenshots/client_login.png)
+![Screen Shot](docs/images/screenshots/client_signup.png)
+![Screen Shot](docs/images/screenshots/admin_categorie.png)
+![Screen Shot](docs/images/screenshots/admin_products.png)
+![Screen Shot](docs/images/screenshots/admin_commande.png)
+![Screen Shot](docs/images/screenshots/admin_realtime.png)
 
 Regarding this project, it was made to make somewhat of an abstract e-commerce website.
 
