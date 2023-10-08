@@ -103,15 +103,15 @@ App\Models\User::create(["name" => "admin", "username" => "admin", "password" =>
 ```
 
 6. Start up The Server (Laravel:port8000 & Express:port8080):
-   ```sh
-       php artisan serve
-   ```
-   ```sh
-       node express.js
-   ```
-   ```sh
-       npm run dev
-   ```
+```sh
+php artisan serve
+```
+```sh
+    node express.js
+```
+```sh
+   npm run dev
+```
 
 ## Roadmap
 
