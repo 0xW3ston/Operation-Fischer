@@ -141,10 +141,10 @@ App\Models\User::create(["name" => "admin", "username" => "admin", "password" =>
 php artisan serve
 ```
 ```sh
-    node express.js
+node express.js
 ```
 ```sh
-   npm run dev
+npm run dev
 ```
 
 ## Roadmap
